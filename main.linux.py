@@ -297,6 +297,7 @@ def check_user():
         print(f"验证账号{_user + 1}中，中途退出可能会误认为账号失效而删除")
         _browser.get("http://www.jd.com")
         for cookie in users[_user]['cookie']:
+            cookie['domain'] = ".jd.com"
             _browser.add_cookie(cookie)
         _browser.refresh()
         _browser.get("http://home.jd.com")
